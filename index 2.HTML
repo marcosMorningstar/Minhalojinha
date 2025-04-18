@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Minha Lojinha</title>
+  <meta charset="UTF-8">
+  <style>
+    body { font-family: Arial; padding: 20px; }
+    .produto { margin-bottom: 15px; }
+    button { padding: 5px 10px; }
+    #carrinho { margin-top: 30px; border-top: 1px solid #ccc; padding-top: 10px; }
+  </style>
+</head>
+<body>
+  <h1>Minha Lojinha</h1>
+  <p>Aqui você encontra produtos incríveis!</p>
+
+  <div class="produto">
+    <h3>Produto 1</h3>
+    <p>R$ 10,00</p>
+    <button onclick="adicionarCarrinho('Produto 1', 10)">Adicionar ao carrinho</button>
+  </div>
+
+  <div class="produto">
+    <h3>Produto 2</h3>
+    <p>R$ 20,00</p>
+    <button onclick="adicionarCarrinho('Produto 2', 20)">Adicionar ao carrinho</button>
+  </div>
+
+  <div class="produto">
+    <h3>Produto 3</h3>
+    <p>R$ 30,00</p>
+    <button onclick="adicionarCarrinho('Produto 3', 30)">Adicionar ao carrinho</button>
+  </div>
+
+  <div id="carrinho">
+    <h2>Carrinho:</h2>
+    <ul id="lista-carrinho"></ul>
+    <p>Total: R$ <span id="total">0</span>,00</p>
+  </div>
+
+  <script>
+    let total = 0;
+
+    function adicionarCarrinho(produto, preco) {
+      const lista = document.getElementById('lista-carrinho');
+      const item = document.createElement('li');
+      item.textContent = `${produto} - R$ ${preco},00`;
+      lista.appendChild(item);
+
+      total += preco;
+      document.getElementById('total').textContent = total;
+    }
+  </script>
+</body>
+</html>
